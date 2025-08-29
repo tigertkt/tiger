@@ -1,297 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tiger Extension – Fast Automation Tool</title>
-  <meta name="description" content="Buy Tiger Extension for auto-fill, auto-submit and lightning-fast workflow. Monthly, Quarterly, Yearly plans available.">
-  <meta name="keywords" content="Tiger Extension, Auto-fill, Auto-submit, Automation Tool, Chrome Extension, Productivity, Lightning Fast">
-  <meta name="author" content="Tiger Extension Team">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://tigertkt.github.io/">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiger Extension — तेज़ Tatkal Tool & Fast Autofill</title>
+  <meta name="description" content="Tiger Extension: तेज़ Tatkal Tool, Smart Autofill, Auto Submit और सुरक्षित ब्राउज़र एक्सटेंशन।" />
+  <meta name="keywords" content="Tatkal Software, IRCTC Tatkal, Fast Booking Tool, Tiger Extension, AutoFill, AutoSubmit" />
+  <meta property="og:title" content="Tiger Extension — तेज़ Tatkal Tool & Fast Autofill" />
+  <meta property="og:description" content="Tiger Extension: तेज़ Tatkal Tool, Smart Autofill, Auto Submit और सुरक्षित ब्राउज़र एक्सटेंशन।" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tigertkt.unaux.com/" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="tiger-extension.css" />
 </head>
-<body class="bg-gradient-to-b from-orange-50 to-white text-slate-800">
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-40 backdrop-blur bg-white/90 border-b">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <img src="main.png" alt="Tiger Logo" class="w-10 h-10 rounded-xl shadow-md" />
-        <div class="font-bold text-xl text-orange-600">Tiger Extension</div>
+<body>
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">🐯</div>
+        <span class="logo-text">Tiger Extension</span>
       </div>
-      <div class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#features" class="hover:text-orange-600">Features</a>
-        <a href="#pricing" class="hover:text-orange-600">Pricing</a>
-        <a href="#faq" class="hover:text-orange-600">FAQ</a>
-        <a href="#contact" class="hover:text-orange-600">Contact</a>
-        <a href="https://t.me/rishindls" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-2xl">Telegram</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          Sell. Install. Automate.<br>
-          <span class="text-orange-600">Tiger Extension</span>
-        </h1>
-        <p class="mt-4 text-lg text-slate-600">
-          Faster • Smarter • Auto-Fill/Submit. Ab manual steps ko bolo bye-bye — Tiger ke saath kaam hoga lightning-fast ⚡
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#pricing" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-2xl">Buy Now</a>
-          <a href="https://wa.me/91XXXXXXXXXX" class="border border-orange-500 text-orange-600 hover:bg-orange-50 px-6 py-3 rounded-2xl">Talk to Sales</a>
-        </div>
-      </div>
-      <div>
-        <div class="relative p-6 md:p-10 rounded-3xl bg-white shadow-xl border border-orange-200">
-          <div class="text-xs uppercase tracking-wider text-slate-500">Live Preview</div>
-          <div class="mt-2 rounded-2xl border bg-orange-50 aspect-video grid place-items-center text-orange-400">
-            <img src="sc.png" alt="">
-          </div>
-          <div class="mt-4 grid grid-cols-2 gap-3">
-            <a href="javascript:void(0)" onclick="openQR()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-2xl text-center">Buy License</a>
-            <a href="#how" class="border border-orange-500 text-orange-600 hover:bg-orange-50 px-4 py-2 rounded-2xl text-center">How it works</a>
-          </div>
-        </div>
-      </div>
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link active" onclick="scrollToSection('home')">Home</a>
+        <a href="#features" class="nav-link" onclick="scrollToSection('features')">Features</a>
+        <a href="#demo" class="nav-link" onclick="scrollToSection('demo')">Review</a>
+        <a href="#pricing" class="nav-link" onclick="scrollToSection('pricing')">Pricing</a>
+        <a href="login.html" class="btn-primary">Login</a>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
   </header>
-  <!-- Why Choose Tiger Extension -->
-  <section id="why" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-orange-600">🔥 क्यों चुनें Tiger Extension?</h2>
-    </div>
-    <div class="mt-10 grid md:grid-cols-2 gap-6">
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">✅ <strong>Confirm PNR Guarantee</strong></p>
-        <p class="text-slate-600 mt-2">हर बार Confirm Ticket की गारंटी के साथ भरोसेमंद Booking।</p>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="badge">🏆 #1 Tatkal Booking Tool in India</div>
+      
+      <h1 class="hero-title">
+        Tiger Extension — <span class="gradient-text">तेज़ Tatkal Tool</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        IRCTC टिकट बुकिंग को तेज़ और आसान बनाने के लिए स्मार्ट ऑटोफिल और ऑटो-सबमिट टूल।
+      </p>
+      
+      <p class="hero-description">
+        Tiger Extension के साथ आपको पूरा सपोर्ट मिलेगा और पूरी ईमानदारी के साथ काम किया जाता है। 
+        एक बार भरोसा करके key खरीदें, <span class="highlight">ईमानदारी ही हमारी पहचान है।</span>
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn-primary btn-large" onclick="openPlan('Pro',1199)">
+          📱 Get Started - ₹499
+        </button>
+        <button class="btn-secondary btn-large" onclick="scrollToSection('demo')">
+          ▶️ Watch Demo
+        </button>
       </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">⚡️ <strong>Superfast Booking</strong></p>
-        <p class="text-slate-600 mt-2">हर क्लिक में बिजली जैसी स्पीड, बिना Delay के।</p>
-      </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">🎯 <strong>Easy & Reliable</strong></p>
-        <p class="text-slate-600 mt-2">बिना टेंशन, बिना Miss – हर बार Smooth Experience।</p>
-      </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">🔐 <strong>100% Safe & Secure</strong></p>
-        <p class="text-slate-600 mt-2">पूरी तरह Tested & Verified Extension।</p>
-      </div>
-    </div>
-  </section>
- <!-- Power Features -->
-  <section id="power" class="max-w-6xl mx-auto px-4 py-16 bg-orange-50 rounded-3xl">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">✨ Power Features</h2>
-    </div>
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">🖱 <strong>1-Click Auto Fill</strong></p>
-        <p class="text-slate-600 mt-2">सेकंडों में सारी Details Auto भरें।</p>
-      </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">⚡️ <strong>Lightning Speed</strong></p>
-        <p class="text-slate-600 mt-2">हर बार Consistent Performance।</p>
-      </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <p class="text-lg">🎟 <strong>Confirm PNR Everytime</strong></p>
-        <p class="text-slate-600 mt-2">अब Miss या Fail का डर नहीं।</p>
-      </div>
-    </div>
-  </section>
-  <!-- Features -->
-  <section id="features" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">Features that save hours</h2>
-      <p class="mt-2 text-slate-600">Automation, speed aur stability — sab ek jagah.</p>
-    </div>
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <h3 class="text-lg font-semibold text-orange-600">⚡ Tez Performance</h3>
-        <p class="text-slate-600 mt-2">Ultra-fast workflow jis se time bache aur productivity badhe.</p>
-      </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <h3 class="text-lg font-semibold text-orange-600">⚡ Auto-Fill + Auto-Submit</h3>
-        <p class="text-slate-600 mt-2">Repeated forms? 1-click me sab ho jata hai.</p>
-      </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <h3 class="text-lg font-semibold text-orange-600">🛡 Secure Updates</h3>
-        <p class="text-slate-600 mt-2">Regular updates & secure build for stable experience.</p>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Happy Users</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">Simple, transparent pricing</h2>
-      <p class="mt-2 text-slate-600">No hidden charges. Instant activation via UPI QR.</p>
-    </div>
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
-      <!-- Monthly Plan -->
-      <div class="p-6 rounded-3xl shadow bg-white border border-orange-200">
-        <h3 class="text-xl font-bold">Monthly</h3>
-        <p class="text-3xl font-extrabold">₹499</p>
-        <ul class="mt-4 space-y-2 text-slate-600">
-          <li>1 Device Key</li>
-          <li>All Features Enabled</li>
-          <li>Regular Updates</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openQR()" class="block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-2xl text-center">Buy Now</a>
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>✨ Powerful Features</h2>
+        <p>सबसे advanced features के साथ अपनी ticket booking को बनाएं lightning fast</p>
       </div>
 
-      <!-- Quarterly Plan -->
-      <div class="p-6 rounded-3xl shadow bg-white border border-orange-200">
-        <h3 class="text-xl font-bold">Quarterly</h3>
-        <p class="text-3xl font-extrabold">₹1199</p>
-        <ul class="mt-4 space-y-2 text-slate-600">
-          <li>1 Device Key</li>
-          <li>Priority Support</li>
-          <li>Regular Updates</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openQR()" class="block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-2xl text-center">Buy Now</a>
-      </div>
-
-      <!-- Yearly Plan -->
-      <div class="p-6 rounded-3xl shadow bg-white border border-orange-200">
-        <h3 class="text-xl font-bold">Yearly</h3>
-        <p class="text-3xl font-extrabold">₹4999</p>
-        <ul class="mt-4 space-y-2 text-slate-600">
-          <li>Device Keys</li>
-          <li>Team Dashboard</li>
-          <li>Priority Support</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openQR()" class="block mt-6 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-2xl text-center">Buy Now</a>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Smart Autofill</h3>
+          <p>Passenger details, stations, date, train number और payment info ऑटो-फिल हो जाते हैं।</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>Auto Submit</h3>
+          <p>Submit बटन खुद क्लिक हो जाता है जिससे टिकट जल्दी बुक हो।</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Multiple Passengers</h3>
+          <p>एक साथ कई यात्रियों की जानकारी सेव और ऑटो-फिल करें।</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure & Safe</h3>
+          <p>आपकी सारी जानकारी सुरक्षित रहती है और केवल आपके device पर store होती है।</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>
-    </div>
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <h3 class="text-lg font-semibold">Tiger Extension kya karta hai?</h3>
-        <p class="text-slate-600 mt-2">Ye repetitive tasks ko automate karta hai — jaise autofill, auto-submit, aur smart shortcuts.</p>
+  <!-- Demo Section -->
+  <section id="demo" class="demo">
+    <div class="container">
+      <div class="section-header">
+        <h2>▶️ Live Demo Videos</h2>
+        <p>देखें Tiger Extension के रियल-टाइम डेमो YouTube पर</p>
       </div>
-      <div class="p-6 rounded-3xl shadow bg-white">
-        <h3 class="text-lg font-semibold">Kaise kharide?</h3>
-        <p class="text-slate-600 mt-2">Buy Now par click karke UPI QR scan karein. Payment ke baad license key turant milegi.</p>
+
+      <div class="videos-grid">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/NomsSI3q2T4" title="Tiger Extension Demo 1" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/zLSYgsxjPpM" title="Tiger Extension Demo 2" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- How to Install -->
-  <section id="how" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">How to Install & Use</h2>
-      <p class="mt-2 text-slate-600">Follow this step-by-step guide video.</p>
-    </div>
-    <div class="mt-8 flex justify-center">
-      <iframe 
-        class="w-full md:w-3/4 aspect-video rounded-2xl shadow-lg"
-        src="https://www.youtube.com/embed/NomsSI3q2T4" 
-        title="Tiger Extension Installation Guide" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>💬 User Reviews</h2>
+        <p>हमारे satisfied customers क्या कहते हैं</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <h4>राज कुमार</h4>
+          <p>"बहुत ही बेहतरीन extension है! Tatkal tickets आसानी से मिल जाते हैं।"</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <h4>राहुल</h4>
+          <p>"Tiger Extension की वजह से अब ticket booking stress-free हो गई है।"</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <h4>अमित सिंह</h4>
+          <p>"Best investment! अब हर बार confirmed ticket मिलती है।"</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Terms & Conditions -->
-  <section id="terms" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">Terms & Conditions</h2>
-      <p class="mt-2 text-slate-600">Please read these terms carefully before using Tiger Extension.</p>
-    </div>
-    <div class="mt-8 space-y-6 text-slate-700 leading-relaxed">
-      <p><strong>1. License:</strong> Every purchase provides a license key valid for the chosen plan. Personal/business use only.</p>
-      <p><strong>2. Payment:</strong> All payments are final. No refunds.</p>
-      <p><strong>3. Usage:</strong> Misuse for illegal activities is prohibited.</p>
-      <p><strong>4. Updates:</strong> Regular updates provided during subscription.</p>
-      <p><strong>5. Support:</strong> Priority support for Quarterly/Yearly plans.</p>
-      <p><strong>6. Limitation of Liability:</strong> Not responsible for data loss or misuse.</p>
-      <p><strong>7. Termination:</strong> License may be revoked if terms violated.</p>
-      <p><strong>8. Changes:</strong> Terms may be updated anytime; users will be notified.</p>
-      <p class="text-slate-500 text-sm">By purchasing or using Tiger Extension, you agree to these Terms & Conditions.</p>
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>💰 Choose Your Plan</h2>
+        <p>अपनी जरूरत के हिसाब से plan चुनें</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Basic</h3>
+          <div class="price">₹499<span>/Month</span></div>
+          <ul class="features-list">
+            <li>✅ Basic Autofill</li>
+            <li>✅ 1 Profile</li>
+            <li>✅ Email Support</li>
+          </ul>
+          <button class="btn-primary" onclick="openPlan('Basic',499)">Buy with UPI</button>
+        </div>
+        
+        <div class="pricing-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <h3>Pro</h3>
+          <div class="price">₹1199<span>/Quarterly</span></div>
+          <ul class="features-list">
+            <li>✅ Advanced Autofill</li>
+            <li>✅ 5 Profiles</li>
+            <li>✅ Priority Support</li>
+            <li>✅ Auto Submit</li>
+          </ul>
+          <button class="btn-primary" onclick="openPlan('Pro',1199)">Buy with UPI</button>
+        </div>
+        
+        <div class="pricing-card">
+          <h3>Team</h3>
+          <div class="price">₹4999<span>/Year</span></div>
+          <ul class="features-list">
+            <li>✅ 10 Users</li>
+            <li>✅ Centralized Settings</li>
+            <li>✅ 24/7 Support</li>
+            <li>✅ Custom Features</li>
+          </ul>
+          <button class="btn-primary" onclick="openPlan('Team',4999)">Buy with UPI</button>
+        </div>
+      </div>
     </div>
   </section>
-
- <!-- UPI QR Modal -->
-<div id="qrModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
-  <div class="bg-white rounded-3xl p-6 md:p-10 w-80 md:w-96 flex flex-col items-center">
-    <button onclick="closeQR()" class="self-end text-slate-500 hover:text-slate-700 font-bold text-lg">&times;</button>
-    <h2 class="text-xl font-bold text-center text-orange-600 mb-4">Pay via UPI</h2>
-    <p class="text-center text-slate-600 mb-4">Scan this QR code using your UPI app to complete the payment:</p>
-    <img src="qr.png" alt="UPI QR Code" class="w-48 h-48 rounded-xl shadow-lg mb-4">
-    <p class="text-center text-sm text-slate-500">After payment, contact us with transaction ID to get your license key.</p>
-  </div>
-</div>
 
   <!-- Footer -->
-  <footer id="contact" class="mt-10 border-t bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8 text-sm">
-      <div>
-        <div class="font-bold text-lg">Tiger Extension</div>
-        <p class="mt-2 text-slate-600">Automation that feels like magic — but secure & reliable.</p>
-      </div>
-      <div>
-        <div class="font-semibold mb-2">Company</div>
-        <ul class="space-y-2 text-slate-600">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-semibold mb-2">Contact</div>
-        <ul class="space-y-2 text-slate-600">
-          <li>Email: support@yourdomain.com</li>
-          <li>Phone: +91-98XXXXXX90</li>
-          <li>Telegram: <a href="https://t.me/rishindls">Chat Now</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t">
-      <div class="max-w-6xl mx-auto px-4 py-6 text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
-        <div>© 2025 Tiger Extension. All rights reserved.</div>
-        <div>Made with ❤️ for speed & simplicity.</div>
-      </div>
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Tiger Extension — All Rights Reserved</p>
+      <p>Made with ❤️ for India</p>
     </div>
   </footer>
 
+  <!-- Payment Modal -->
+  <div class="modal" id="payModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>UPI Payment</h3>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="planText" class="plan-text"></div>
+        <div class="qr-container" id="qrWrap">
+          <div class="qr-placeholder">QR Code</div>
+        </div>
+        <div class="upi-string" id="upiString">upi://pay?pa=example@upi&pn=Tiger Extension</div>
+        <p class="payment-note">स्कैन करें और पेमेंट करें। पेमेंट के बाद यह स्क्रीन अपने आप key दिखा देगी।</p>
+        <div id="statusMsg" class="status-msg">⏳ Waiting for payment...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Button -->
+  <a href="https://t.me/rishindls" target="_blank" class="support-btn">
+    📱 Telegram Support
+  </a>
+
+  <!-- QRCode.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="tiger-extension.js"></script>
+
   <script>
-    function openQR() {
-      document.getElementById('qrModal').classList.remove('hidden');
+    // Modal open function
+    function openPlan(plan, price) {
+      document.getElementById("payModal").style.display = "flex";
+      document.getElementById("planText").innerHTML =
+        "🔑 <b>" + plan + "</b> Plan — ₹" + price;
+
+      // Example UPI ID (replace with your real UPI ID)
+      let upiID = "alexkite@jio"; 
+      let upiLink =
+        "upi://pay?pa=" + upiID +
+        "&pn=Tiger%20Extension" +
+        "&am=" + price +
+        "&cu=INR";
+
+      // Show UPI string
+      document.getElementById("upiString").innerText = upiLink;
+
+      // Clear old QR
+      document.getElementById("qrWrap").innerHTML = "";
+
+      // Generate new QR
+      new QRCode(document.getElementById("qrWrap"), {
+        text: upiLink,
+        width: 180,
+        height: 180
+      });
     }
-    function closeQR() {
-      document.getElementById('qrModal').classList.add('hidden');
+
+    // Close modal
+    function closeModal() {
+      document.getElementById("payModal").style.display = "none";
     }
+
+    // Set year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/68a5b7524ebc491927e0d2bf/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+  <!-- Tawk.to Chat -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/68a5b26668d72d192ba5403c/1j33k1pd9';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
 </body>
 </html>
-
-
-
-
-
