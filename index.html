@@ -7,7 +7,6 @@
 :root {
   --tiger1: #ff7a18;
   --tiger2: #ff5a00;
-  --bg: #0a0f1e;
 }
 body {
   margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
@@ -21,7 +20,7 @@ body {
   width:420px; max-width:90%;
   padding:28px;
   border-radius:22px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.06);
   backdrop-filter: blur(20px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255,122,24,0.3);
   text-align:center;
@@ -66,21 +65,6 @@ p {margin:0; font-size:14px; color:#ccc;}
   transform-origin:left; animation: timer 5s linear forwards;
 }
 @keyframes timer {from{transform:scaleX(1);} to{transform:scaleX(0);}}
-.buttons {
-  display:flex; justify-content:center; gap:12px; margin-top:10px;
-}
-button {
-  padding:8px 16px; border:none; border-radius:12px;
-  font-weight:600; cursor:pointer; transition:.2s;
-}
-button.primary {
-  background:linear-gradient(90deg,var(--tiger1),var(--tiger2));
-  color:#111; box-shadow:0 6px 20px rgba(255,122,24,0.4);
-}
-button.secondary {
-  background:#fff2; color:#fff;
-}
-button:hover {transform:translateY(-2px);}
 canvas {
   position:absolute; inset:0; width:100%; height:100%;
   pointer-events:none; z-index:-1;
@@ -96,26 +80,32 @@ canvas {
     </svg>
   </div>
   <h2>Install Success 🎉</h2>
-  <p>Tiger Extension is ready! Closing in <span id="count">5</span>s</p>
+  <p>Tiger Extension is ready!</p>
   <div class="progress"><span></span></div>
-  <div class="buttons">
-    <button class="primary" onclick="openTiger()">Open Extension</button>
-    <button class="secondary" onclick="closePopup()">Close</button>
-  </div>
 </div>
+
+<!-- Success + Close Sounds -->
+<audio id="successSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" preload="auto"></audio>
+<audio id="closeSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
+
 <script>
-let sec=5,timer=setInterval(()=>{
-  document.getElementById('count').innerText=--sec;
-  if(sec<=0){clearInterval(timer);closePopup();}
-},1000);
+/* Play success sound when popup appears */
+document.getElementById("successSound").play().catch(()=>{});
+
+/* Auto close after 5 seconds */
+setTimeout(closePopup, 5000);
 
 function closePopup(){
-  document.getElementById('popup').style.opacity='0';
-  setTimeout(()=>document.getElementById('popup').remove(),600);
-}
-function openTiger(){
-  alert("Tiger Extension Opened 🐯");
-  closePopup();
+  const pop=document.getElementById('popup');
+  if(!pop) return;
+  document.getElementById("closeSound").play().catch(()=>{});
+  pop.style.transition='all .6s ease';
+  pop.style.opacity='0';
+  pop.style.transform='translateY(20px) scale(.9)';
+  setTimeout(()=>{
+    pop.remove();
+    window.close(); // 🔑 Will close if opened by extension
+  },600);
 }
 
 /* Confetti */
@@ -123,10 +113,10 @@ const canvas=document.getElementById("confetti"),ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth; canvas.height=window.innerHeight;
 let parts=[];
 function random(a,b){return Math.random()*(b-a)+a;}
-for(let i=0;i<100;i++){
+for(let i=0;i<80;i++){
   parts.push({x:random(0,canvas.width),y:random(-canvas.height,0),
     r:random(4,8),c:`hsl(${random(20,50)},100%,${random(50,70)}%)`,
-    s:random(2,6),vy:random(2,5)});
+    vy:random(2,5)});
 }
 function draw(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
