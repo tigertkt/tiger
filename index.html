@@ -1,305 +1,341 @@
-<!DOCTYPE html>
-<html lang="hi" dir="ltr">
+<!doctype html>
+<html lang="hi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tiger Extension — तेज़ Tatkal Tool & Fast Autofill</title>
-  <meta name="description" content="Tiger Extension: तेज़ Tatkal Tool, Smart Autofill, Auto Submit और सुरक्षित ब्राउज़र एक्सटेंशन।" />
-  <meta name="keywords" content="Tatkal Software, IRCTC Tatkal, Fast Booking Tool, Tiger Extension, AutoFill, AutoSubmit" />
-  <meta property="og:title" content="Tiger Extension — तेज़ Tatkal Tool & Fast Autofill" />
-  <meta property="og:description" content="Tiger Extension: तेज़ Tatkal Tool, Smart Autofill, Auto Submit और सुरक्षित ब्राउज़र एक्सटेंशन।" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tigertkt.unaux.com/" />
-  <meta property="og:image" content="assets/og-image.jpg" />
-  <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="tiger-extension.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tiger Extension — Install Success</title>
+<style>
+  :root{
+    --bg: #0f1724;
+    --glass: rgba(255,255,255,0.06);
+    --accent: #ff7a18; /* tiger orange */
+    --accent-dark: #ff5a00;
+    --muted: rgba(255,255,255,0.85);
+  }
+  html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+  body{
+    background: linear-gradient(180deg,#071021 0%, #071630 60%, #0b1220 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    color:var(--muted);
+  }
+
+  /* Popup card */
+  .popup {
+    width:420px;
+    max-width:96%;
+    border-radius:18px;
+    padding:22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    box-shadow: 0 10px 30px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+    position:relative;
+    overflow:visible;
+    transform-origin:center;
+    animation: pop 420ms cubic-bezier(.2,.95,.2,1);
+  }
+
+  @keyframes pop {
+    from { transform: translateY(8px) scale(.98); opacity:0; }
+    to   { transform: translateY(0) scale(1); opacity:1; }
+  }
+
+  .header{
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .logo {
+    width:56px;
+    height:56px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background: radial-gradient(circle at 30% 30%, #fff6e9, #ffeccf 10%, transparent 30%), linear-gradient(135deg,var(--accent),var(--accent-dark));
+    box-shadow: 0 6px 18px rgba(255,122,24,0.18), 0 2px 4px rgba(0,0,0,0.45);
+    position:relative;
+    overflow:hidden;
+  }
+  .logo:before{
+    content:"";
+    position:absolute; inset:0; background:linear-gradient(45deg, rgba(255,255,255,0.06), transparent);
+    mix-blend-mode: overlay;
+  }
+  .brand {
+    font-weight:700; font-size:18px; letter-spacing:0.2px;
+    color: #fff;
+  }
+  .sub { font-size:13px; color: rgba(255,255,255,0.75); margin-top:3px; }
+
+  /* checkmark circle */
+  .status {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:14px;
+  }
+  .check-wrap {
+    width:120px; height:120px; border-radius:999px;
+    display:grid; place-items:center; position:relative;
+    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    box-shadow: 0 10px 30px rgba(14,27,45,0.6), 0 2px 6px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  svg.check { width:70px; height:70px; display:block; }
+  .circle-anim {
+    stroke: rgba(255,255,255,0.12);
+    stroke-width:8;
+    fill: none;
+  }
+  .tick {
+    stroke: #fff;
+    stroke-width:6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    fill:none;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawTick 700ms cubic-bezier(.2,.9,.2,1) 220ms forwards;
+  }
+  @keyframes drawTick {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* text + countdown */
+  .msg{
+    text-align:center;
+    margin-top:12px;
+  }
+  .msg h2{margin:6px 0 4px 0; font-size:18px; color:#fff;}
+  .msg p{ margin:0; font-size:13px; color: rgba(255,255,255,0.8); }
+
+  .progress {
+    height:8px;
+    width:100%;
+    background: rgba(255,255,255,0.04);
+    border-radius:10px;
+    margin-top:14px;
+    overflow:hidden;
+  }
+  .progress > i {
+    display:block;
+    height:100%;
+    width:100%;
+    transform-origin:left center;
+    background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+    animation: countdown 5s linear forwards;
+  }
+  @keyframes countdown { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+  .controls{
+    display:flex; gap:10px; justify-content:center; margin-top:16px;
+  }
+  button.btn {
+    border:0; padding:8px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+    background:transparent; color: rgba(255,255,255,0.9);
+    transition: transform .12s ease, box-shadow .12s;
+    box-shadow: none;
+  }
+  button.btn.primary {
+    background: linear-gradient(90deg,var(--accent),var(--accent-dark));
+    color: #111;
+    box-shadow: 0 8px 22px rgba(255,122,24,0.18);
+  }
+  button.btn:active { transform: translateY(1px) scale(.995); }
+
+  /* confetti canvas absolute */
+  canvas.confetti {
+    position: absolute;
+    left: -50%;
+    top: -40%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.95;
+  }
+
+  /* small footer note */
+  .note { text-align:center; margin-top:12px; font-size:12px; color: rgba(255,255,255,0.55); }
+
+  /* responsive */
+  @media (max-width:420px){
+    .logo{width:52px;height:52px}
+    .check-wrap{width:100px;height:100px}
+  }
+</style>
 </head>
 <body>
-  <!-- Navigation Header -->
-  <header class="header">
-    <div class="nav-container">
-      <div class="logo">
-        <div class="logo-icon">🐯</div>
-        <span class="logo-text">Tiger Extension</span>
-      </div>
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav-link active" onclick="scrollToSection('home')">Home</a>
-        <a href="#features" class="nav-link" onclick="scrollToSection('features')">Features</a>
-        <a href="#demo" class="nav-link" onclick="scrollToSection('demo')">Review</a>
-        <a href="#pricing" class="nav-link" onclick="scrollToSection('pricing')">Pricing</a>
-       
-      </nav>
-      <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div class="popup" role="dialog" aria-labelledby="title" aria-describedby="desc" id="successPopup">
+  <canvas class="confetti" id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <div class="header">
+    <div class="logo" aria-hidden="true">
+      <!-- simple tiger icon (abstract) -->
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="10.5" r="7" fill="#fff6e9" opacity="0.06"/>
+        <path d="M6 13c0-3.5 2.7-6 6-6s6 2.5 6 6" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+        <path d="M8 10c.8-.8 2.2-.8 3 0" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+        <path d="M16 11s-.5 1.5-4 1.5S8 11 8 11" stroke="#fff" stroke-opacity="0.06" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="badge">🏆 #1 Tatkal Booking Tool in India</div>
-      
-      <h1 class="hero-title">
-        Tiger Extension — <span class="gradient-text">तेज़ Tatkal Tool</span>
-      </h1>
-      
-      <p class="hero-subtitle">
-        IRCTC टिकट बुकिंग को तेज़ और आसान बनाने के लिए स्मार्ट ऑटोफिल और ऑटो-सबमिट टूल।
-      </p>
-      
-      <p class="hero-description">
-        Tiger Extension के साथ आपको पूरा सपोर्ट मिलेगा और पूरी ईमानदारी के साथ काम किया जाता है। 
-        एक बार भरोसा करके key खरीदें, <span class="highlight">ईमानदारी ही हमारी पहचान है।</span>
-      </p>
-
-      <div class="hero-buttons">
-        <button class="btn-primary btn-large" onclick="openPlan('Pro',499)">
-          📱 Get Started - ₹499
-        </button>
-        <button class="btn-secondary btn-large" onclick="scrollToSection('demo')">
-          ▶️ Watch Demo
-        </button>
-      </div>
-
-      <!-- Stats -->
-      <div class="stats">
-        <div class="stat-item">
-          <div class="stat-number">100+</div>
-          <div class="stat-label">Happy Users</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Success Rate</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Support</div>
-        </div>
-      </div>
+    <div style="flex:1">
+      <div class="brand" id="title">Tiger Extension</div>
+      <div class="sub" id="desc">Installation successful — extension ready to use</div>
     </div>
-  </section>
 
-  <!-- Features Section -->
-  <section id="features" class="features">
-    <div class="container">
-      <div class="section-header">
-        <h2>✨ Powerful Features</h2>
-        <p>सबसे advanced features के साथ अपनी ticket booking को बनाएं lightning fast</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Smart Autofill</h3>
-          <p>Passenger details, stations, date, train number और payment info ऑटो-फिल हो जाते हैं।</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">✅</div>
-          <h3>Auto Submit</h3>
-          <p>Submit बटन खुद क्लिक हो जाता है जिससे टिकट जल्दी बुक हो।</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
-          <h3>Multiple Passengers</h3>
-          <p>एक साथ कई यात्रियों की जानकारी सेव और ऑटो-फिल करें।</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Secure & Safe</h3>
-          <p>आपकी सारी जानकारी सुरक्षित रहती है और केवल आपके device पर store होती है।</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Demo Section -->
-  <section id="demo" class="demo">
-    <div class="container">
-      <div class="section-header">
-        <h2>▶️ Live Demo Videos</h2>
-        <p>देखें Tiger Extension के रियल-टाइम डेमो YouTube पर</p>
-      </div>
-
-      <div class="videos-grid">
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/NomsSI3q2T4" title="Tiger Extension Demo 1" allowfullscreen></iframe>
-        </div>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/zLSYgsxjPpM" title="Tiger Extension Demo 2" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="container">
-      <div class="section-header">
-        <h2>💬 User Reviews</h2>
-        <p>हमारे satisfied customers क्या कहते हैं</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <h4>राज कुमार</h4>
-          <p>"बहुत ही बेहतरीन extension है! Tatkal tickets आसानी से मिल जाते हैं।"</p>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <h4>राहुल</h4>
-          <p>"Tiger Extension की वजह से अब ticket booking stress-free हो गई है।"</p>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <h4>अमित सिंह</h4>
-          <p>"Best investment! अब हर बार confirmed ticket मिलती है।"</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing">
-    <div class="container">
-      <div class="section-header">
-        <h2>💰 Choose Your Plan</h2>
-        <p>अपनी जरूरत के हिसाब से plan चुनें</p>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Basic</h3>
-          <div class="price">₹499<span>/Month</span></div>
-          <ul class="features-list">
-            <li>✅ Basic Autofill</li>
-            <li>✅ 1 Profile</li>
-            <li>✅ Email Support</li>
-          </ul>
-          <button class="btn-primary" onclick="openPlan('Basic',499)">Buy with UPI</button>
-        </div>
-        
-        <div class="pricing-card popular">
-          <div class="popular-badge">Most Popular</div>
-          <h3>Pro</h3>
-          <div class="price">₹1399<span>/Quarterly</span></div>
-          <ul class="features-list">
-            <li>✅ Advanced Autofill</li>
-            <li>✅ 1 Profiles</li>
-            <li>✅ Priority Support</li>
-            <li>✅ Auto Submit</li>
-          </ul>
-          <button class="btn-primary" onclick="openPlan('Pro',1399)">Buy with UPI</button>
-        </div>
-        
-        <div class="pricing-card">
-          <h3>Team</h3>
-          <div class="price">₹4999<span>/Year</span></div>
-          <ul class="features-list">
-            <li>✅ 5 Users</li>
-            <li>✅ Centralized Settings</li>
-            <li>✅ 24/7 Support</li>
-            <li>✅ Custom Features</li>
-          </ul>
-          <button class="btn-primary" onclick="openPlan('Team',4999)">Buy with UPI</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> Tiger Extension — All Rights Reserved</p>
-      <p>Made with ❤️ for India</p>
-    </div>
-  </footer>
-
-  <!-- Payment Modal -->
-  <div class="modal" id="payModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>UPI Payment</h3>
-        <button class="close-btn" onclick="closeModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="planText" class="plan-text"></div>
-        <div class="qr-container" id="qrWrap">
-          <div class="qr-placeholder">QR Code</div>
-        </div>
-        <div class="upi-string" id="upiString">upi://pay?pa=example@upi&pn=Tiger Extension</div>
-        <p class="payment-note">स्कैन करें और पेमेंट करें। पेमेंट के बाद यह स्क्रीन अपने आप key दिखा देगी।</p>
-        <div id="statusMsg" class="status-msg">⏳ Waiting for payment...</div>
-      </div>
+    <div style="display:flex;align-items:center">
+      <button class="btn" id="closeBtn" title="Close (skip)">Skip</button>
     </div>
   </div>
 
-  <!-- Support Button -->
-  <a href="https://t.me/rishindls" target="_blank" class="support-btn">
-    📱 Telegram Support
-  </a>
+  <div class="status" aria-hidden="true">
+    <div class="check-wrap" role="img" aria-label="Installation successful">
+      <svg class="check" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle class="circle-anim" cx="32" cy="32" r="28" stroke-dasharray="176" stroke-dashoffset="0"></circle>
+        <path class="tick" d="M18 34 L28 44 L46 22"></path>
+      </svg>
+    </div>
+  </div>
 
-  <!-- QRCode.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-  <script src="tiger-extension.js"></script>
+  <div class="msg">
+    <h2>Install Complete ✅</h2>
+    <p>Thank you — Tiger is installed and active. This popup will close in <span id="countdown">5</span>s.</p>
+  </div>
 
-  <script>
-    // Modal open function
-    function openPlan(plan, price) {
-      document.getElementById("payModal").style.display = "flex";
-      document.getElementById("planText").innerHTML =
-        "🔑 <b>" + plan + "</b> Plan — ₹" + price;
+  <div class="progress" aria-hidden="true" title="Auto close timer">
+    <i></i>
+  </div>
 
-      // Example UPI ID (replace with your real UPI ID)
-      let upiID = "alexkite@jio"; 
-      let upiLink =
-        "upi://pay?pa=" + upiID +
-        "&pn=Tiger%20Extension" +
-        "&am=" + price +
-        "&cu=INR";
+  <div class="controls" role="group" aria-label="actions">
+    <button class="btn primary" id="openExt">Open Extension</button>
+    <button class="btn" id="dismiss">Close</button>
+  </div>
 
-      // Show UPI string
-      document.getElementById("upiString").innerText = upiLink;
+  <div class="note">You can open the extension from the toolbar — enjoy 🐯</div>
+</div>
 
-      // Clear old QR
-      document.getElementById("qrWrap").innerHTML = "";
+<script>
+/* Config */
+const AUTO_CLOSE_SECONDS = 5;
 
-      // Generate new QR
-      new QRCode(document.getElementById("qrWrap"), {
-        text: upiLink,
-        width: 180,
-        height: 180
+/* Elements */
+const popup = document.getElementById('successPopup');
+const countdownEl = document.getElementById('countdown');
+const closeBtn = document.getElementById('closeBtn');
+const dismiss = document.getElementById('dismiss');
+const openExt = document.getElementById('openExt');
+const confettiCanvas = document.getElementById('confettiCanvas');
+
+/* Auto-close timer */
+let timeLeft = AUTO_CLOSE_SECONDS;
+countdownEl.textContent = timeLeft;
+
+const tickInterval = setInterval(() => {
+  timeLeft--;
+  if (timeLeft >= 0) countdownEl.textContent = timeLeft;
+  if (timeLeft <= 0) {
+    clearInterval(tickInterval);
+    closePopup();
+  }
+}, 1000);
+
+closeBtn.addEventListener('click', closePopup);
+dismiss.addEventListener('click', closePopup);
+openExt.addEventListener('click', () => {
+  // Replace with extension URL or action if needed.
+  // For demo, just close and show an alert
+  closePopup();
+  setTimeout(() => alert('Opening Tiger Extension...'), 150);
+});
+
+function closePopup() {
+  // gently fade & remove
+  popup.style.transition = 'transform .36s ease, opacity .36s ease';
+  popup.style.opacity = '0';
+  popup.style.transform = 'translateY(10px) scale(.98)';
+  setTimeout(() => {
+    if (popup && popup.parentNode) popup.parentNode.removeChild(popup);
+  }, 380);
+}
+
+/* Confetti — small lightweight implementation */
+(function initConfetti(){
+  const canvas = confettiCanvas;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], running = true;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth * (devicePixelRatio || 1);
+    H = canvas.height = canvas.offsetHeight * (devicePixelRatio || 1);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function rand(min,max){ return Math.random()*(max-min)+min; }
+  const flavors = [
+    '#ff7a18','#ffb86b','#ffd89b','#ffffff','#ffd700','#ff5a00'
+  ];
+
+  function addBurst(amount=50){
+    for(let i=0;i<amount;i++){
+      particles.push({
+        x: rand(W*0.2,W*0.8),
+        y: rand(H*0.2,H*0.5),
+        vx: rand(-6,6),
+        vy: rand(-12,-3),
+        size: rand(6,14),
+        rot: rand(0,360),
+        vr: rand(-6,6),
+        color: flavors[Math.floor(rand(0,flavors.length))],
+        life: rand(60,120)
       });
     }
+  }
 
-    // Close modal
-    function closeModal() {
-      document.getElementById("payModal").style.display = "none";
+  function update(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=particles.length-1;i>=0;i--){
+      const p = particles[i];
+      p.vy += 0.45; // gravity
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      p.life--;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.6);
+      ctx.restore();
+      if(p.y > H + 100 || p.life <= 0) particles.splice(i,1);
     }
+    if(running) requestAnimationFrame(update);
+  }
 
-    // Set year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  // initial bursts for visual punch
+  addBurst(40);
+  setTimeout(()=>addBurst(30), 150);
+  setTimeout(()=>addBurst(18), 420);
 
-  <!-- Tawk.to Chat -->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/68a5b26668d72d192ba5403c/1j33k1pd9';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
+  update();
+
+  // stop after a while to conserve CPU
+  setTimeout(()=> running=false, 3600);
+})();
+
+/* Accessibility focus */
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape') closePopup();
+});
+
+/* Prevent accidental background scroll (if used as overlay) */
+document.body.style.overflow = 'hidden';
+setTimeout(()=>{ document.body.style.overflow = ''; }, (AUTO_CLOSE_SECONDS+1)*1000 + 600);
+</script>
 </body>
 </html>
-
-
-
-
