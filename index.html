@@ -1,341 +1,143 @@
 <!doctype html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Tiger Extension — Install Success</title>
+<title>Tiger Extension Installed</title>
 <style>
-  :root{
-    --bg: #0f1724;
-    --glass: rgba(255,255,255,0.06);
-    --accent: #ff7a18; /* tiger orange */
-    --accent-dark: #ff5a00;
-    --muted: rgba(255,255,255,0.85);
-  }
-  html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-  body{
-    background: linear-gradient(180deg,#071021 0%, #071630 60%, #0b1220 100%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    color:var(--muted);
-  }
-
-  /* Popup card */
-  .popup {
-    width:420px;
-    max-width:96%;
-    border-radius:18px;
-    padding:22px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-    box-shadow: 0 10px 30px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-    position:relative;
-    overflow:visible;
-    transform-origin:center;
-    animation: pop 420ms cubic-bezier(.2,.95,.2,1);
-  }
-
-  @keyframes pop {
-    from { transform: translateY(8px) scale(.98); opacity:0; }
-    to   { transform: translateY(0) scale(1); opacity:1; }
-  }
-
-  .header{
-    display:flex;
-    gap:12px;
-    align-items:center;
-  }
-  .logo {
-    width:56px;
-    height:56px;
-    border-radius:12px;
-    display:grid;
-    place-items:center;
-    background: radial-gradient(circle at 30% 30%, #fff6e9, #ffeccf 10%, transparent 30%), linear-gradient(135deg,var(--accent),var(--accent-dark));
-    box-shadow: 0 6px 18px rgba(255,122,24,0.18), 0 2px 4px rgba(0,0,0,0.45);
-    position:relative;
-    overflow:hidden;
-  }
-  .logo:before{
-    content:"";
-    position:absolute; inset:0; background:linear-gradient(45deg, rgba(255,255,255,0.06), transparent);
-    mix-blend-mode: overlay;
-  }
-  .brand {
-    font-weight:700; font-size:18px; letter-spacing:0.2px;
-    color: #fff;
-  }
-  .sub { font-size:13px; color: rgba(255,255,255,0.75); margin-top:3px; }
-
-  /* checkmark circle */
-  .status {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-top:14px;
-  }
-  .check-wrap {
-    width:120px; height:120px; border-radius:999px;
-    display:grid; place-items:center; position:relative;
-    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-    box-shadow: 0 10px 30px rgba(14,27,45,0.6), 0 2px 6px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.03);
-  }
-
-  svg.check { width:70px; height:70px; display:block; }
-  .circle-anim {
-    stroke: rgba(255,255,255,0.12);
-    stroke-width:8;
-    fill: none;
-  }
-  .tick {
-    stroke: #fff;
-    stroke-width:6;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    fill:none;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: drawTick 700ms cubic-bezier(.2,.9,.2,1) 220ms forwards;
-  }
-  @keyframes drawTick {
-    to { stroke-dashoffset: 0; }
-  }
-
-  /* text + countdown */
-  .msg{
-    text-align:center;
-    margin-top:12px;
-  }
-  .msg h2{margin:6px 0 4px 0; font-size:18px; color:#fff;}
-  .msg p{ margin:0; font-size:13px; color: rgba(255,255,255,0.8); }
-
-  .progress {
-    height:8px;
-    width:100%;
-    background: rgba(255,255,255,0.04);
-    border-radius:10px;
-    margin-top:14px;
-    overflow:hidden;
-  }
-  .progress > i {
-    display:block;
-    height:100%;
-    width:100%;
-    transform-origin:left center;
-    background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-    animation: countdown 5s linear forwards;
-  }
-  @keyframes countdown { from { transform: scaleX(1); } to { transform: scaleX(0); } }
-
-  .controls{
-    display:flex; gap:10px; justify-content:center; margin-top:16px;
-  }
-  button.btn {
-    border:0; padding:8px 14px; border-radius:10px; cursor:pointer; font-weight:600;
-    background:transparent; color: rgba(255,255,255,0.9);
-    transition: transform .12s ease, box-shadow .12s;
-    box-shadow: none;
-  }
-  button.btn.primary {
-    background: linear-gradient(90deg,var(--accent),var(--accent-dark));
-    color: #111;
-    box-shadow: 0 8px 22px rgba(255,122,24,0.18);
-  }
-  button.btn:active { transform: translateY(1px) scale(.995); }
-
-  /* confetti canvas absolute */
-  canvas.confetti {
-    position: absolute;
-    left: -50%;
-    top: -40%;
-    width: 200%;
-    height: 200%;
-    pointer-events: none;
-    z-index: 5;
-    opacity: 0.95;
-  }
-
-  /* small footer note */
-  .note { text-align:center; margin-top:12px; font-size:12px; color: rgba(255,255,255,0.55); }
-
-  /* responsive */
-  @media (max-width:420px){
-    .logo{width:52px;height:52px}
-    .check-wrap{width:100px;height:100px}
-  }
+:root {
+  --tiger1: #ff7a18;
+  --tiger2: #ff5a00;
+  --bg: #0a0f1e;
+}
+body {
+  margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
+  background: radial-gradient(circle at top, #111a2c, #060a14);
+  font-family: 'Segoe UI', sans-serif;
+  overflow:hidden;
+  color:#fff;
+}
+.popup {
+  position:relative;
+  width:420px; max-width:90%;
+  padding:28px;
+  border-radius:22px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255,122,24,0.3);
+  text-align:center;
+  animation: floatIn .6s cubic-bezier(.2,1.2,.3,1) forwards;
+}
+@keyframes floatIn {
+  from {transform: translateY(40px) scale(.9); opacity:0;}
+  to {transform: translateY(0) scale(1); opacity:1;}
+}
+h2 {
+  margin:14px 0 8px;
+  font-size:22px;
+  background: linear-gradient(90deg,var(--tiger1),var(--tiger2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+p {margin:0; font-size:14px; color:#ccc;}
+.check {
+  width:120px; height:120px; margin:0 auto;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background: radial-gradient(circle at 30% 30%, #fff2, #0003);
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.05),
+              0 0 40px rgba(255,122,24,0.4);
+  transform: scale(0);
+  animation: pop .6s cubic-bezier(.5,1.5,.5,1) .3s forwards;
+}
+@keyframes pop {to {transform: scale(1);}}
+.check svg {
+  stroke: white; stroke-width:6; fill:none;
+  stroke-dasharray:100; stroke-dashoffset:100;
+  animation: draw 1s ease .6s forwards;
+}
+@keyframes draw {to {stroke-dashoffset:0;}}
+.progress {
+  height:8px; border-radius:10px;
+  margin:20px 0; background:#fff2; overflow:hidden;
+}
+.progress span {
+  display:block; height:100%;
+  background: linear-gradient(90deg,var(--tiger1),var(--tiger2));
+  transform-origin:left; animation: timer 5s linear forwards;
+}
+@keyframes timer {from{transform:scaleX(1);} to{transform:scaleX(0);}}
+.buttons {
+  display:flex; justify-content:center; gap:12px; margin-top:10px;
+}
+button {
+  padding:8px 16px; border:none; border-radius:12px;
+  font-weight:600; cursor:pointer; transition:.2s;
+}
+button.primary {
+  background:linear-gradient(90deg,var(--tiger1),var(--tiger2));
+  color:#111; box-shadow:0 6px 20px rgba(255,122,24,0.4);
+}
+button.secondary {
+  background:#fff2; color:#fff;
+}
+button:hover {transform:translateY(-2px);}
+canvas {
+  position:absolute; inset:0; width:100%; height:100%;
+  pointer-events:none; z-index:-1;
+}
 </style>
 </head>
 <body>
-
-<div class="popup" role="dialog" aria-labelledby="title" aria-describedby="desc" id="successPopup">
-  <canvas class="confetti" id="confettiCanvas" aria-hidden="true"></canvas>
-
-  <div class="header">
-    <div class="logo" aria-hidden="true">
-      <!-- simple tiger icon (abstract) -->
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="10.5" r="7" fill="#fff6e9" opacity="0.06"/>
-        <path d="M6 13c0-3.5 2.7-6 6-6s6 2.5 6 6" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
-        <path d="M8 10c.8-.8 2.2-.8 3 0" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
-        <path d="M16 11s-.5 1.5-4 1.5S8 11 8 11" stroke="#fff" stroke-opacity="0.06" stroke-width="1.5" stroke-linecap="round" />
-      </svg>
-    </div>
-
-    <div style="flex:1">
-      <div class="brand" id="title">Tiger Extension</div>
-      <div class="sub" id="desc">Installation successful — extension ready to use</div>
-    </div>
-
-    <div style="display:flex;align-items:center">
-      <button class="btn" id="closeBtn" title="Close (skip)">Skip</button>
-    </div>
+<div class="popup" id="popup">
+  <canvas id="confetti"></canvas>
+  <div class="check">
+    <svg viewBox="0 0 64 64">
+      <path d="M18 34 L28 44 L46 22"/>
+    </svg>
   </div>
-
-  <div class="status" aria-hidden="true">
-    <div class="check-wrap" role="img" aria-label="Installation successful">
-      <svg class="check" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <circle class="circle-anim" cx="32" cy="32" r="28" stroke-dasharray="176" stroke-dashoffset="0"></circle>
-        <path class="tick" d="M18 34 L28 44 L46 22"></path>
-      </svg>
-    </div>
+  <h2>Install Success 🎉</h2>
+  <p>Tiger Extension is ready! Closing in <span id="count">5</span>s</p>
+  <div class="progress"><span></span></div>
+  <div class="buttons">
+    <button class="primary" onclick="openTiger()">Open Extension</button>
+    <button class="secondary" onclick="closePopup()">Close</button>
   </div>
-
-  <div class="msg">
-    <h2>Install Complete ✅</h2>
-    <p>Thank you — Tiger is installed and active. This popup will close in <span id="countdown">5</span>s.</p>
-  </div>
-
-  <div class="progress" aria-hidden="true" title="Auto close timer">
-    <i></i>
-  </div>
-
-  <div class="controls" role="group" aria-label="actions">
-    <button class="btn primary" id="openExt">Open Extension</button>
-    <button class="btn" id="dismiss">Close</button>
-  </div>
-
-  <div class="note">You can open the extension from the toolbar — enjoy 🐯</div>
 </div>
-
 <script>
-/* Config */
-const AUTO_CLOSE_SECONDS = 5;
+let sec=5,timer=setInterval(()=>{
+  document.getElementById('count').innerText=--sec;
+  if(sec<=0){clearInterval(timer);closePopup();}
+},1000);
 
-/* Elements */
-const popup = document.getElementById('successPopup');
-const countdownEl = document.getElementById('countdown');
-const closeBtn = document.getElementById('closeBtn');
-const dismiss = document.getElementById('dismiss');
-const openExt = document.getElementById('openExt');
-const confettiCanvas = document.getElementById('confettiCanvas');
-
-/* Auto-close timer */
-let timeLeft = AUTO_CLOSE_SECONDS;
-countdownEl.textContent = timeLeft;
-
-const tickInterval = setInterval(() => {
-  timeLeft--;
-  if (timeLeft >= 0) countdownEl.textContent = timeLeft;
-  if (timeLeft <= 0) {
-    clearInterval(tickInterval);
-    closePopup();
-  }
-}, 1000);
-
-closeBtn.addEventListener('click', closePopup);
-dismiss.addEventListener('click', closePopup);
-openExt.addEventListener('click', () => {
-  // Replace with extension URL or action if needed.
-  // For demo, just close and show an alert
+function closePopup(){
+  document.getElementById('popup').style.opacity='0';
+  setTimeout(()=>document.getElementById('popup').remove(),600);
+}
+function openTiger(){
+  alert("Tiger Extension Opened 🐯");
   closePopup();
-  setTimeout(() => alert('Opening Tiger Extension...'), 150);
-});
-
-function closePopup() {
-  // gently fade & remove
-  popup.style.transition = 'transform .36s ease, opacity .36s ease';
-  popup.style.opacity = '0';
-  popup.style.transform = 'translateY(10px) scale(.98)';
-  setTimeout(() => {
-    if (popup && popup.parentNode) popup.parentNode.removeChild(popup);
-  }, 380);
 }
 
-/* Confetti — small lightweight implementation */
-(function initConfetti(){
-  const canvas = confettiCanvas;
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [], running = true;
-
-  function resize(){
-    W = canvas.width = canvas.offsetWidth * (devicePixelRatio || 1);
-    H = canvas.height = canvas.offsetHeight * (devicePixelRatio || 1);
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  function rand(min,max){ return Math.random()*(max-min)+min; }
-  const flavors = [
-    '#ff7a18','#ffb86b','#ffd89b','#ffffff','#ffd700','#ff5a00'
-  ];
-
-  function addBurst(amount=50){
-    for(let i=0;i<amount;i++){
-      particles.push({
-        x: rand(W*0.2,W*0.8),
-        y: rand(H*0.2,H*0.5),
-        vx: rand(-6,6),
-        vy: rand(-12,-3),
-        size: rand(6,14),
-        rot: rand(0,360),
-        vr: rand(-6,6),
-        color: flavors[Math.floor(rand(0,flavors.length))],
-        life: rand(60,120)
-      });
-    }
-  }
-
-  function update(){
-    ctx.clearRect(0,0,W,H);
-    for(let i=particles.length-1;i>=0;i--){
-      const p = particles[i];
-      p.vy += 0.45; // gravity
-      p.x += p.vx;
-      p.y += p.vy;
-      p.rot += p.vr;
-      p.life--;
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.rot * Math.PI / 180);
-      ctx.fillStyle = p.color;
-      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.6);
-      ctx.restore();
-      if(p.y > H + 100 || p.life <= 0) particles.splice(i,1);
-    }
-    if(running) requestAnimationFrame(update);
-  }
-
-  // initial bursts for visual punch
-  addBurst(40);
-  setTimeout(()=>addBurst(30), 150);
-  setTimeout(()=>addBurst(18), 420);
-
-  update();
-
-  // stop after a while to conserve CPU
-  setTimeout(()=> running=false, 3600);
-})();
-
-/* Accessibility focus */
-document.addEventListener('keydown', (e)=>{
-  if(e.key === 'Escape') closePopup();
-});
-
-/* Prevent accidental background scroll (if used as overlay) */
-document.body.style.overflow = 'hidden';
-setTimeout(()=>{ document.body.style.overflow = ''; }, (AUTO_CLOSE_SECONDS+1)*1000 + 600);
+/* Confetti */
+const canvas=document.getElementById("confetti"),ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+let parts=[];
+function random(a,b){return Math.random()*(b-a)+a;}
+for(let i=0;i<100;i++){
+  parts.push({x:random(0,canvas.width),y:random(-canvas.height,0),
+    r:random(4,8),c:`hsl(${random(20,50)},100%,${random(50,70)}%)`,
+    s:random(2,6),vy:random(2,5)});
+}
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  parts.forEach(p=>{
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,2*Math.PI);
+    ctx.fillStyle=p.c; ctx.fill();
+    p.y+=p.vy; if(p.y>canvas.height)p.y=-10;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
 </script>
 </body>
 </html>
